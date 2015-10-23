@@ -6,7 +6,7 @@
 <div class="form-box">
     <h2><?=$title?></h2>
     
-    <a class="btn btn-primary" href="unidades/registrar"><span class="glyphicon glyphicon-plus"></span> Nueva unidad</a>
+    <a class="btn btn-primary" href="index.php?route=unidades/registrar"><span class="glyphicon glyphicon-plus"></span> Nueva unidad</a>
     <br><br>
     <table class="table table-bordered">
         <tr>

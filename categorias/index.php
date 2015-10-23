@@ -8,7 +8,7 @@
     
     <div class="row">
     	<div class="col-md-4">
-    		<a class="btn btn-primary" href="categorias/registrar"><span class="glyphicon glyphicon-plus"></span> Nueva categor&iacute;a</a>
+    		<a class="btn btn-primary" href="index.php?route=categorias/registrar"><span class="glyphicon glyphicon-plus"></span> Nueva categor&iacute;a</a>
     	</div>
     	<div class="col-md-8">
     		<div class="pull-right">

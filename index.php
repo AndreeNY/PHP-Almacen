@@ -4,13 +4,26 @@ $route = isset($_GET['route']) ? $_GET['route'] : "welcome";
 ob_start();
 switch($route) {
     case "unidades":
+        $title = "Registrar Unidades";
+        include_once("unidades/editar.php");
+        $content = ob_get_contents();
+        break;
+    case "unidades/registrar":
         $title = "Unidades";
         include_once("unidades/index.php");
         $content = ob_get_contents();
         break;
+    case "unidades/guardar":
+        include_once("unidades/guardar.php");
+        break;
     case "categorias":
         $title = "Categorías";
         include_once("categorias/index.php");
+        $content = ob_get_contents();
+        break;
+    case "categorias/registrar":
+        $title = "Registrar Categorías";
+        include_once("categorias/editar.php");
         $content = ob_get_contents();
         break;
     case "productos":
