@@ -1,4 +1,13 @@
-<form action="index.php?route=productos/guardar" class="form-box" role="form">
+<?php
+$f = fopen("data/unidades.csv", "r");
+$unidades = explode("\n",fread($f, filesize("data/unidades.csv")));
+fclose($f);
+
+$f = fopen("data/categorias.csv", "r");
+$categorias = explode("\n",fread($f, filesize("data/categorias.csv")));
+fclose($f);
+?>
+<form method="post" action="index.php?route=productos/guardar" class="form-box" role="form">
     <h2 class="form-signin-heading">Registrar Producto</h2>
 
     <div class="alert alert-danger" role="alert" style="display: none;">
@@ -36,14 +45,22 @@
     
     <label>Unidad de Medida</label>
     <select name="unidad" class="form-control">
-        <option value=""></option>
+        <?php foreach($unidades as $row) {
+            $unidad = explode(",", $row);
+        ?>
+        <option value="<?=$unidad[0]?>"><?=$unidad[1]?></option>
+        <?php } ?>
     </select>
     
     <br><br>
     
     <label>Categor&iacute;a</label>
-    <select name="unidad" class="form-control">
-        <option value=""></option>
+    <select name="categoria" class="form-control">
+        <?php foreach($categorias as $row) {
+            $categoria = explode(",", $row);
+        ?>
+        <option value="<?=$categoria[0]?>"><?=$categoria[1]?></option>
+        <?php } ?>
     </select>
     
     <br>

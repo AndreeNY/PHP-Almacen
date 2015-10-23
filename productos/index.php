@@ -1,5 +1,7 @@
 <?php
-
+	$f = fopen("data/productos.csv", "r");
+	$productos = explode("\n",fread($f, filesize("data/productos.csv")));
+	fclose($f);
 ?>
 <div class="form-box">
     <h2><?=$title?></h2>
@@ -16,19 +18,21 @@
 				<th>Código</th>
 				<th>Nombre</th>
 				<th>Marca</th>
-				<th>Modelo</th>
 				<th>Categoría</th>
 				<th>Unidad</th>
 	            <th></th>
 	        </tr>
         </thead>
         <tbody>
+			<?php foreach($productos as $row) {
+				$producto = explode(",", $row);
+			?>
 	        <tr>
-		        <td>&nbsp;</td>
-				<td>&nbsp;</td>
-				<td>&nbsp;</td>
-				<td>&nbsp;</td>
-				<td>&nbsp;</td>
+		        <td><?=$producto[0]?></td>
+				<td><?=$producto[1]?></td>
+				<td><?=$producto[2]?></td>
+				<td><?=$producto[3]?></td>
+				<td><?=$producto[4]?></td>
 		        <td class="cell-actions">
 		            <div class="btn-group">
 		                <a class="btn btn-xs btn-warning" href="#"><span class="glyphicon glyphicon-pencil"></span></a>
@@ -36,6 +40,7 @@
 		            </div>
 		        </td>
 		    </tr>
+			<?php } ?>
         </tbody>
     </table>
 </div>

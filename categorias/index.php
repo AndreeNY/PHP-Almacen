@@ -1,5 +1,7 @@
 <?php
-
+	$f = fopen("data/categorias.csv", "r");
+	$categorias = explode("\n",fread($f, filesize("data/categorias.csv")));
+	fclose($f);
 ?>
 <div class="form-box">
     <h2><?=$title?></h2>
@@ -27,9 +29,12 @@
 	        </tr>
         </thead>
         <tbody>
+			<?php foreach($categorias as $row) {
+				$categoria = explode(",", $row);
+			?>
 	        <tr>
-				<td>&nbsp;</td>
-				<td>&nbsp;</td>
+				<td><?=$categoria[0]?></td>
+				<td><?=$categoria[1]?></td>
 		        <td class="cell-actions">
 		            <div class="btn-group">
 		                <a class="btn btn-xs btn-warning" href="#"><span class="glyphicon glyphicon-pencil"></span></a>
@@ -37,6 +42,7 @@
 		            </div>
 		        </td>
 		    </tr>
+			<?php } ?>
         </tbody>
     </table>
     <div class="text-center">
