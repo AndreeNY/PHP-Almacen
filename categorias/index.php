@@ -1,6 +1,6 @@
 <?php
 	$f = fopen("data/categorias.csv", "r");
-	$categorias = explode("\n",fread($f, filesize("data/categorias.csv")));
+	$categorias = explode("\n",trim(fread($f, filesize("data/categorias.csv")), "\n"));
 	fclose($f);
 ?>
 <div class="form-box">
